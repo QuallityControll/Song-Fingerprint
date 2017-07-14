@@ -157,10 +157,10 @@ def peaks(spectrogram_arr):
     cdf = np.cumsum(ys) * dx  # this gives you the cumulative distribution of amplitudes
     cutoff = xs[np.searchsorted(cdf, 0.77)]
     foreground = (spectrogram_arr >= cutoff)
-    fig, (ax1, ax2) = plt.subplots(1, 2)
-    ax2.imshow(foreground)
-    ax1.imshow(np.logical_and(foreground, is_peaks))
-    # return np.logical_and(foreground, is_peaks)
+    # fig, (ax1, ax2) = plt.subplots(1, 2)
+    # ax2.imshow(foreground)
+    # ax1.imshow(np.logical_and(foreground, is_peaks))
+    return np.logical_and(foreground, is_peaks)
 
 
 S, f, t = spectrogram(mic_to_numpy_array(10))
