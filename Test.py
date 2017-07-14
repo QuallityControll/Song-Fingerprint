@@ -8,7 +8,7 @@ fs = 44100
 
 
 def file_to_array(file_path):
-    """  It transforms a song into a np array
+    """  It transforms a song into a np array.
     :param
         file_path[String]:
             A file path to the song
@@ -22,23 +22,34 @@ def file_to_array(file_path):
 
 
 def mic_to_numpy_array(time):
+    """ It transforms a mic input into an np array.
+
+    :param
+        time[float]:
+            The time it needs to record
+
+    :return:
+        mic[np.array]:
+            This is an array of the values of the song that was recorded at a sampling rate of 44100 Hz.
+
+    """
     mic_input, fs= record_audio(time)
-    a = []
+    mic = []
     for i in mic_input:
-        a.append(np.fromstring(i, dtype=np.int16))
-    a = np.hstack(a)
-    return a
+        mic.append(np.fromstring(i, dtype=np.int16))
+    mic = np.hstack(mic)
+    return mic
 
 
-
-def plot_spectogram(samples):
+def plot_spectrogram(samples):
     """ It takes a sample of a song and plots the spectrogram of it.
 
     :param
         samples[np.array]:
-            The array of samples of the song that was recorded or filed in.
+            The array of sampled values of the song that was recorded or filed in.
+
     :return:
-        Nothing
+        Nothing. It plots the spectrogram
 
     """
     digital = np.copy(samples)
@@ -47,10 +58,11 @@ def plot_spectogram(samples):
     fig.colorbar(im)
 
 
-def spectogram(samples):
+def spectrogram(samples):
     """
     :param
         samples:
+            The array of sampled values of the song that was recorded or filed in.
     :return:
         (S, f, t):
             This is a tuple of the spectrogram, the frequencies and the times.
@@ -58,9 +70,11 @@ def spectogram(samples):
             The 2D array of the coefficients of the DFT of the song. So S[i, j] is the coefficient at frequency = i
             and time = j.
         f:
+            f is an array of frequency values.
+        t:
+            t is an array of time values.
 
     """
-
     digital = np.copy(samples)
     S, f, t = mlab.specgram(digital, NFFT=4096, Fs=fs, window=mlab.window_hanning, noverlap=(4096 // 2))
     to_return = (S, f, t)
@@ -68,6 +82,17 @@ def spectogram(samples):
 
 
 def plot_song(samples):
+    """
+    This takes the samples array and graphs it with time.
+
+    :param
+        samples:
+            The array of sampled values of the song that was recorded or filed in.
+
+    :return:
+        Nothing. Prints out a graph of the song.
+    """
+
     cutSamples = samples[::1000]
     # plt.plot(cutSamples)
     times = np.arange(len(samples))
@@ -78,6 +103,16 @@ def plot_song(samples):
 
 
 def plot_dft(samples):
+    """
+    This plots the Discrete Fourier Analysis of the song that the samples array represents.
+
+    :param
+        samples:
+            The array of sampled values of the song that was recorded or filed in.
+
+    :return:
+        Nothing. It prints out a graph of the Discrete Fourier Analysis of the song.
+    """
     dft = np.fft.rfft(samples)
     times = np.arange(len(samples))
     times = times / 44100
@@ -89,5 +124,5 @@ def plot_dft(samples):
     ax.set_xlabel("Frequencies(Hz)")
 
 song = mic_to_numpy_array(2)
-plot_spectogram(song)
+plot_spectrogram(song)
 
