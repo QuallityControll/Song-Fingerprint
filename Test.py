@@ -76,8 +76,8 @@ def spectrogram(samples):
         (S, f, t)[Tuple of np.arrays]:
             This is a tuple of the spectrogram, the frequencies and the times.
         S[np.array]:
-            The 2D array of the coefficients of the DFT of the song. So S[i, j] is the coefficient at frequency = i
-            and time = j.
+            The 2D array of the coefficients of the DFT of the song. So S[i, j] is the coefficient at frequency = f[i]
+            and time = t[j].
         f[np.array]:
             f is a 1D array of frequency values.
         t[np.array]:
