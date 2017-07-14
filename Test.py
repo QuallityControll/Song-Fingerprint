@@ -151,15 +151,15 @@ def peaks(spectrogram_arr, freq):
     neighborhood = iterate_structure(struct, 10)
 
     is_peaks = spectrogram_arr == maximum_filter(spectrogram_arr, footprint=neighborhood)
-    # ys, xs = np.histogram(spectrogram_arr.flatten(), bins=len(freq) // 2, normed=True)
-    # dx = xs[-1] - xs[-2]
-    # cdf = np.cumsum(ys) * dx  # this gives you the cumulative distribution of amplitudes
-    # cutoff = xs[np.searchsorted(cdf, 0.77)]
-    # foreground = (spectrogram_arr >= cutoff)
+    ys, xs = np.histogram(spectrogram_arr.flatten(), bins=spectrogram_arr.size() // 2, normed=True)
+    dx = xs[-1] - xs[-2]
+    cdf = np.cumsum(ys) * dx  # this gives you the cumulative distribution of amplitudes
+    cutoff = xs[np.searchsorted(cdf, 0.77)]
+    foreground = (spectrogram_arr >= cutoff)
     # fig, (ax1, ax2) = plt.subplots(1, 2)
     # ax2.imshow(foreground)
     # ax1.imshow(np.logical_and(foreground, is_peaks))
-    return is_peaks
+    return np.logical_and(foreground, is_peaks)
 
 
 S, f, t = spectrogram(mic_to_numpy_array(10))
