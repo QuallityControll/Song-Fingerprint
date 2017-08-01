@@ -140,8 +140,8 @@ def peaks(spectrogram_arr):
     :param:
         spectrogram_arr[np.array]:
             An array of the spectrogram.
-            The 2D array of the coefficients of the DFT of the song. So S[i, j] is the coefficient at frequency = freq[i]
-            and time = time[j].
+            The 2D array of the coefficients of the DFT of the song. So S[i, j] is the coefficient at frequency = i
+            and time = j.
     :return:
         peaks[np.array]:
             This is an array with the values of the peaks in the respective
@@ -162,5 +162,7 @@ def peaks(spectrogram_arr):
     return np.logical_and(foreground, is_peaks)
 
 
-S, f, t = spectrogram(mic_to_numpy_array(10))
-peaks(S)
+#S, f, t = spectrogram(mic_to_numpy_array(10))
+S = np.random.random((100, 100))
+print(S)
+print(peaks(S))
