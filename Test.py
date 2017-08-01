@@ -133,7 +133,7 @@ def plot_dft(samples):
     ax.set_xlabel("Frequencies(Hz)")
 
 
-def peaks(spectrogram_arr, freq):
+def peaks(spectrogram_arr):
     """
     This finds the peaks of a spectrogram.
 
@@ -163,4 +163,4 @@ def peaks(spectrogram_arr, freq):
 
 
 S, f, t = spectrogram(mic_to_numpy_array(10))
-peaks(S, f)
+peaks(S)
