@@ -1,6 +1,22 @@
 # Song-Fingerprint
 
-This listens for a song and predicts what song is being played based on information about the local peaks of the ofrier transform of the input data.
+## Returns Name and percent accuracy of song - 
+
+This listens to a song and returns the the accuracy (in percentage) of the song that has the most matches in local peaks, the song that it returns is always in the database.
+
+for example - "I am 81% confident that this song is Don't Stop Believeing"
+
+## Installation Instuctions:
+
+2) Clone repository into desired file 
+
+3) Run setup.py files to run face recognition use following command:
+
+      ```python sfp_setup.py develop```
+      
+4) Use the command to start the face recognition package after running the setup.py file (use the following command): 
+     
+     ```import song_fingerprint as fp```
 
 Alexa Skill:
   name: SongFP
