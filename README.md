@@ -20,11 +20,10 @@ Alexa Skill:
       "intent": "RecordSong"
     }
   ]
-}```
+}
 
 
-Sample Utterances:
-```RecordSong Record for {five | length} seconds
+RecordSong Record for {five | length} seconds
 RecordSong Record for {ten | length} seconds
 RecordSong Record for {twenty | length} seconds
 RecordSong Record for {fourty | length} seconds
