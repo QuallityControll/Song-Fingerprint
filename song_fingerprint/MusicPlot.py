@@ -19,7 +19,7 @@ fs = 44100
 fss = 44032
 
 __all__ = ["save", "file_to_array", "mic_to_numpy_array", "spectogram", "peaks",
-            "convertData", "add_song_to_dict", "check_database", "addSong"]
+            "convertData", "add_song_to_dict", "check_database", "addSong", "MicCheck"]
 
 try:
     with open("song_database.p", "rb" ) as f:
