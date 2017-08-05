@@ -8,7 +8,7 @@ Alexa Skill:
   Invoaction phrase: fingerprint
   
   Intent Schematic:
-  {
+  ```{
   "intents": [
     {
       "slots": [
@@ -20,15 +20,14 @@ Alexa Skill:
       "intent": "RecordSong"
     }
   ]
-}
+}```
 
 Sample Utterances:
-RecordSong Record for {five | length} seconds
+```RecordSong Record for {five | length} seconds
 RecordSong Record for {ten | length} seconds
 RecordSong Record for {twenty | length} seconds
 RecordSong Record for {fourty | length} seconds
 RecordSong {five | length} seconds
 RecordSong {ten | length} seconds
 RecordSong {twenty | length} seconds
-RecordSong {fourty | length} seconds
-  
+RecordSong {fourty | length} seconds```
