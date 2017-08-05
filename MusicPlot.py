@@ -296,6 +296,13 @@ def check_database(MicPeaks, lengthOfRecording, fan=20, howManyToCompare=5):
 
 
 def addSong(name, fileAddress):
+    """
+
+
+    :param name: name of song - str
+    :param fileAddress: adresss of file - str
+    :return: adds song to song_database - dict
+    """
     temp = file_to_array(fileAddress)
     songLength_database[name] = len(temp)
 
@@ -324,7 +331,11 @@ def addSong(name, fileAddress):
 #####
 @ask.intent("RecordSong")
 def MicCheck(length):
+    """
 
+    :param length: how long you want to record for - int
+    :return: perceentage confidence of song
+    """
     print(length)
     length = (int(length))
 
@@ -341,10 +352,10 @@ def MicCheck(length):
     #return statement('dipppp')
     temp =  check_database(peaksMicFinal, length)
 
-    #if temp[1] < .32:#32
-    #    return statement("I am not sure")
-    #else:
-    return statement("I am " + str(temp[1]) + " percent confident that the song is " + str(temp[0]) + '.')
+    if temp[1] < .32:#32
+        return statement("I am not sure")
+    else:
+        return statement("I am " + str(temp[1]) + " percent confident that the song is " + str(temp[0]) + '.')
     #print(returnn)
     #if returnn == "I am not sure":
     #    msg = returnn
@@ -354,7 +365,7 @@ def MicCheck(length):
     #print(type(returnn))
     #print(type(msg))
     #return statement("asdasdasdasdsdasd")
-    return statement(str(length))
+    #return statement(str(length))
 
 @app.route('/')
 def homepage():
