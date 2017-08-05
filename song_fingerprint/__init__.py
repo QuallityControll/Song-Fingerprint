@@ -1,1 +1,1 @@
-from ./MusicPlot import *
+from MusicPlot import *
