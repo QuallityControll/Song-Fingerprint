@@ -8,7 +8,8 @@ Alexa Skill:
   Invoaction phrase: fingerprint
   
   Intent Schematic:
-  ```{
+  ```
+{
   "intents": [
     {
       "slots": [
