@@ -8,6 +8,8 @@ for example - "I am 81% confident that this song is Don't Stop Believeing"
 
 ## Installation Instuctions:
 
+1) install the [microhone](https://github.com/LLCogWorks2017/Microphone) following the instructions on the link.*
+
 2) Clone repository into desired file 
 
 3) Run setup.py files to run face recognition use following command:
@@ -17,6 +19,13 @@ for example - "I am 81% confident that this song is Don't Stop Believeing"
 4) Use the command to start the face recognition package after running the setup.py file (use the following command): 
      
      ```import song_fingerprint as fp```
+
+
+## *credits
+
+[microhone](https://github.com/LLCogWorks2017/Microphone) was developed by 
+
+
 
 Alexa Skill:
   name: SongFP
