@@ -23,8 +23,7 @@ for example - "I am 81% confident that this song is Don't Stop Believeing"
 
 ## *credits
 
-[microhone](https://github.com/LLCogWorks2017/Microphone) was developed by 
-
+[microhone](https://github.com/LLCogWorks2017/Microphone) was developed by [Ryan Soklaski](https://github.com/LLrsokl) 
 
 
 Alexa Skill:
